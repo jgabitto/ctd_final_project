@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'users', to: 'users#index'
       
-      post 'authenticate', to: 'authentication#create'
+      post 'login', to: 'authentication#login'
     end
   end
 end
