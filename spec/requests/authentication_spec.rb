@@ -8,7 +8,7 @@ describe 'Authentication', type: :request do
         it 'authenticates the client' do
             post '/api/v1/login', params: { email: user.email, password: '123456'}
             token = AuthenticationTokenService.call(user.id)
-            expect(response).to have_http_status(:created)
+            expect(response).to have_http_status(:ok)
             expect(response_body).to eq({
                 'token' => token
             })

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get 'users', to: 'users#index'
       
       post 'login', to: 'authentication#login'
+      post 'register', to: 'authentication#register'
     end
   end
 end
