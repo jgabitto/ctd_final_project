@@ -66,6 +66,6 @@ class ApplicationController < ActionController::API
     end
 
     def authenticate_user
-        AuthenticationTokenService.decoded_token(request)
+        @decoded_token = AuthenticationTokenService.decoded_token(request)
     end
 end
