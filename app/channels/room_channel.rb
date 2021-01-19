@@ -9,8 +9,7 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def receive data
-    p data
-    locations = Location.near([data[:body][:latitude], data[:body][:longitude]], 5)
+    locations = Location.near([data['body']['latitude'], data['body']['longitude']], 5)
     serialized_data = ActiveModelSerializers::SerializableResource.new(locations, include: options).as_json
     RoomChannel.broadcast_to(@user, serialized_data)
     # RoomChannel.broadcast_to("room_channel#{1}", data)
