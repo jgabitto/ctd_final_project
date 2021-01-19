@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_195757) do
+ActiveRecord::Schema.define(version: 2021_01_19_013630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,19 +37,19 @@ ActiveRecord::Schema.define(version: 2021_01_18_195757) do
 
   create_table "customers", force: :cascade do |t|
     t.string "role"
-    t.bigint "users_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_customers_on_users_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "drivers", force: :cascade do |t|
-    t.bigint "users_id", null: false
     t.boolean "working"
     t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["users_id"], name: "index_drivers_on_users_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_drivers_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 2021_01_18_195757) do
 
   add_foreign_key "cars", "car_models"
   add_foreign_key "cars", "drivers"
-  add_foreign_key "customers", "users", column: "users_id"
-  add_foreign_key "drivers", "users", column: "users_id"
+  add_foreign_key "customers", "users"
+  add_foreign_key "drivers", "users"
   add_foreign_key "locations", "users"
   add_foreign_key "ride_requests", "customers"
   add_foreign_key "ride_requests", "drivers"
