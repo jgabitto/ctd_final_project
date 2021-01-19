@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has_many :locations
+    has_one :location
     has_one :customer
     has_one :driver
 

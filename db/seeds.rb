@@ -12,9 +12,9 @@ users = User.create([
         phone: '7136688457',
         first_name: 'Jorge',
         last_name: 'Gabitto',
-        birth_date: '08/17/1992',
+        birth_date: Date.strptime("08/17/1992", "%m/%d/%Y"),
         drivers_license_number: '123456',
-        expirty_date: '08/17/2040'
+        expirty_date: Date.strptime("06/20/1980", "%m/%d/%Y")
     },
     {
         email: 'driver1@gmail.com',
@@ -22,9 +22,9 @@ users = User.create([
         phone: '7133334567',
         first_name: 'Maria',
         last_name: 'Doe',
-        birth_date: '05/18/1950',
+        birth_date: Date.strptime("06/20/1980", "%m/%d/%Y"),
         drivers_license_number: '123456',
-        expirty_date: '05/18/2040'
+        expirty_date: Date.strptime("06/20/1980", "%m/%d/%Y")
     },
     {
         email: 'driver2@gmail.com',
@@ -32,9 +32,9 @@ users = User.create([
         phone: '7133334567',
         first_name: 'Christina',
         last_name: 'Doe',
-        birth_date: '05/18/1950',
+        birth_date: Date.strptime("06/20/1980", "%m/%d/%Y"),
         drivers_license_number: '123456',
-        expirty_date: '05/18/2040'
+        expirty_date: Date.strptime("06/20/1980", "%m/%d/%Y")
     },
     {
         email: 'driver3@gmail.com',
@@ -42,9 +42,9 @@ users = User.create([
         phone: '7133334567',
         first_name: 'Luisa',
         last_name: 'Doe',
-        birth_date: '05/18/1950',
+        birth_date: Date.strptime("06/20/1980", "%m/%d/%Y"),
         drivers_license_number: '123456',
-        expirty_date: '05/18/2040'
+        expirty_date: Date.strptime("06/20/1980", "%m/%d/%Y")
     },
     {
         email: 'driver4@gmail.com',
@@ -52,9 +52,9 @@ users = User.create([
         phone: '7133334567',
         first_name: 'Alex',
         last_name: 'Doe',
-        birth_date: '05/18/1950',
+        birth_date: Date.strptime("06/20/1980", "%m/%d/%Y"),
         drivers_license_number: '123456',
-        expirty_date: '05/18/2040'
+        expirty_date: Date.strptime("06/20/1980", "%m/%d/%Y")
     },
     
 ])
@@ -84,5 +84,32 @@ drivers = Driver.create([
         user_id: User.find(5).id,
         role: 'driver',
         working: true
+    }
+])
+
+locations = Location.create([
+    {
+        'user_id': User.find(2).id,
+        'location': '4702 Kinglet Street, Houston, Texas 77035, United States',
+        'latitude': 29.660349,
+        'longitude': -95.456562
+    },
+    {
+        'user_id': User.find(3).id,
+        'location': 'Rice University, 6100 Main St, Houston, Texas 77005, United States',
+        'latitude': 29.717171,
+        'longitude': -95.4018215
+    },
+    {
+        'user_id': User.find(4).id,
+        'location': 'Houston Downtown Management District, 1119 Milam St, Houston, Texas 77002, United States',
+        'latitude': 29.756763,
+        'longitude': -95.367593
+    },
+    {
+        'user_id': User.find(5).id,
+        'location': 'Poison Girl, 1641 Westheimer Rd, Houston, Texas 77006, United States',
+        'latitude': 29.742678,
+        'longitude': -95.401127
     }
 ])

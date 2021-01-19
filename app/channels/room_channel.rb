@@ -1,17 +1,26 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
     # p params[:user][:id]
-    @user = User.find(params[:user][:id])
-    # stream_for @user
-    stream_from "room_channel#{@user.id}"
+    # @user = User.find(params[:user][:id])
+    @user = User.find(params[:id])
+    p params[:id]
+    stream_for @user
+    # stream_from "room_channel#{@user.id}"
   end
 
-  def received data
-    # RoomChannel.broadcast_to(@user, {user: @user })
-    RoomChannel.broadcast_to("room_channel#{@user.id}", data: "hello")
+  def receive data
+    p data
+    locations = Location.near([data[:body][:latitude], data[:body][:longitude]], 5)
+    serialized_data = ActiveModelSerializers::SerializableResource.new(locations, include: options).as_json
+    RoomChannel.broadcast_to(@user, serialized_data)
+    # RoomChannel.broadcast_to("room_channel#{1}", data)
   end
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+  end
+
+  def options
+    ['driver', 'user', 'user.location']
   end
 end
