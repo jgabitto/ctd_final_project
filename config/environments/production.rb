@@ -40,7 +40,7 @@ Rails.application.configure do
 
   config.action_cable.mount_path = '/cable'
   config.action_cable.url = 'wss://ctd-final-project.herokuapp.com/cable'
-  config.action_cable.allowed_request_origins = [ /http:\/\/localhost:*/ ]
+  config.action_cable.allowed_request_origins = [ 'https://the-rideshare.netlify.app/', 'https://ctd-rideshare-app.herokuapp.com/', /http:\/\/localhost:*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
