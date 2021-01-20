@@ -4,12 +4,11 @@ module Api
             before_action :authenticate_user, except: :login
             
             def login
-                p params[:email]
-                # raise AuthenticationError unless user.authenticate(params.require(:password))
+                raise AuthenticationError unless user.authenticate(params.require(:password))
                 # token = AuthenticationTokenService.call(user.id)
                 # response.set_header('Authentication', token)
                 create_and_send_token(user.id)
-                json_response({ email: user.email }, :ok)
+                json_response(user, :ok, user_options)
             end
 
             def register
@@ -31,6 +30,10 @@ module Api
 
             def user
                 @user ||= User.find_by!(email: params.require(:email))
+            end
+
+            def user_options
+                ['user', 'location', 'customer', 'driver']
             end
         end
     end
