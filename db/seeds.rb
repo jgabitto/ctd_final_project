@@ -226,7 +226,7 @@ cars = Car.create([
     {
         license_plate: '123456',
         car_type: 'sedan',
-        driver_id: Driver.find(2).id,
+        driver_id: Driver.find(1).id,
         car_model_id: CarModel.find(1).id,
         capacity: 4,
         active: true
@@ -234,7 +234,7 @@ cars = Car.create([
     {
         license_plate: '123456',
         car_type: 'suv',
-        driver_id: Driver.find(3).id,
+        driver_id: Driver.find(2).id,
         car_model_id: CarModel.find(2).id,
         capacity: 6,
         active: true
@@ -242,7 +242,7 @@ cars = Car.create([
     {
         license_plate: '123456',
         car_type: 'luxury',
-        driver_id: Driver.find(4).id,
+        driver_id: Driver.find(3).id,
         car_model_id: CarModel.find(3).id,
         capacity: 4,
         active: true
@@ -250,7 +250,7 @@ cars = Car.create([
     {
         license_plate: '123456',
         car_type: 'coupe',
-        driver_id: Driver.find(5).id,
+        driver_id: Driver.find(4).id,
         car_model_id: CarModel.find(4).id,
         capacity: 4,
         active: true
@@ -258,7 +258,7 @@ cars = Car.create([
     {
         license_plate: '123456',
         car_type: 'hatchback',
-        driver_id: Driver.find(6).id,
+        driver_id: Driver.find(5).id,
         car_model_id: CarModel.find(5).id,
         capacity: 2,
         active: true
@@ -266,7 +266,7 @@ cars = Car.create([
     {
         license_plate: '123456',
         car_type: 'sports',
-        driver_id: Driver.find(7).id,
+        driver_id: Driver.find(6).id,
         car_model_id: CarModel.find(6).id,
         capacity: 1,
         active: true
@@ -274,7 +274,7 @@ cars = Car.create([
     {
         license_plate: '123456',
         car_type: 'coupe',
-        driver_id: Driver.find(8).id,
+        driver_id: Driver.find(7).id,
         car_model_id: CarModel.find(7).id,
         capacity: 2,
         active: true
@@ -282,7 +282,7 @@ cars = Car.create([
     {
         license_plate: '123456',
         car_type: 'sedan',
-        driver_id: Driver.find(7).id,
+        driver_id: Driver.find(8).id,
         car_model_id: CarModel.find(8).id,
         capacity: 4,
         active: true
