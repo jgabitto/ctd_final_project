@@ -33,7 +33,7 @@ module Api
             end
 
             def user_options
-                ['user', 'location', 'customer', 'driver']
+                ['user', 'location', 'customer', 'driver', 'driver.cars', 'driver.cars.car_model']
             end
         end
     end
