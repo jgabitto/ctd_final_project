@@ -20,6 +20,6 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def options
-    ['user', 'location', 'customer', 'driver', 'driver.cars', 'driver.cars.car_model']
+    ['user', 'location', 'user.driver', 'user.driver.cars', 'user.driver.cars.car_model']
   end
 end
