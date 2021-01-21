@@ -36,7 +36,7 @@ module FinalProject
     config.middleware.insert_before 0, Rack::Cors do
         allow do
           #Removed origins Array, changed syntax as documented: https://www.rubydoc.info/gems/rack-cors/0.4.0
-          origins 'http://localhost:3001', 'http://localhost:3000'
+          origins 'http://localhost:3001', 'http://localhost:3000', 'https://the-rideshare.netlify.app'
           resource '*',
             headers: :any,
             expose: 'Authorization',
