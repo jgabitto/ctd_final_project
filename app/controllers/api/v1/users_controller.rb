@@ -3,7 +3,7 @@ module Api
         class UsersController < ApplicationController
             before_action :authenticate_user
             before_action :set_users, only: [:index]
-            before_action :set_user, only: [:update]
+            before_action :set_user, only: [:update, :show]
 
             def index
                 id = @decoded_token[0].values[0]
@@ -13,9 +13,12 @@ module Api
                 render json: @users 
             end
 
+            def show
+                json_response(@user, :ok, user_options)
+            end
+
             def update
                 @user.update!(user_params)
-                p params
 
                 json_response(@user, :ok, user_options)
             end
@@ -36,7 +39,7 @@ module Api
             end
 
             def user_options
-                ['user', 'location', 'user.customer', 'user.driver', 'user.driver.cars', 'user.driver.cars.car_model']
+                ['user', 'location', 'customer', 'driver', 'driver.cars', 'driver.cars.car_model']
             end
         end
     end
