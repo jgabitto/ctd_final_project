@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_172040) do
+ActiveRecord::Schema.define(version: 2021_01_22_200109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,20 +72,23 @@ ActiveRecord::Schema.define(version: 2021_01_21_172040) do
   end
 
   create_table "ride_requests", force: :cascade do |t|
-    t.bigint "customer_id", null: false
     t.bigint "driver_id", null: false
     t.time "request_start_time"
     t.time "ride_start_time"
     t.time "ride_end_time"
-    t.point "gps_starting_point"
-    t.point "gps_end_point"
     t.boolean "cancelled"
     t.bigint "payment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_ride_requests_on_customer_id"
+    t.string "gps_starting_point"
+    t.string "gps_end_point"
+    t.string "starting_address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "user_id", null: false
     t.index ["driver_id"], name: "index_ride_requests_on_driver_id"
     t.index ["payment_id"], name: "index_ride_requests_on_payment_id"
+    t.index ["user_id"], name: "index_ride_requests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,7 +109,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_172040) do
   add_foreign_key "customers", "users"
   add_foreign_key "drivers", "users"
   add_foreign_key "locations", "users"
-  add_foreign_key "ride_requests", "customers"
   add_foreign_key "ride_requests", "drivers"
   add_foreign_key "ride_requests", "payments"
+  add_foreign_key "ride_requests", "users"
 end

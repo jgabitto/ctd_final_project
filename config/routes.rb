@@ -6,6 +6,10 @@ Rails.application.routes.draw do
       get 'user', to: 'users#show'
       put 'update', to: 'users#update'
 
+      get 'rides', to: 'ride_request#index'
+      post 'create', to: 'ride_request#create'
+
+
       
       post 'login', to: 'authentication#login'
       post 'register', to: 'authentication#register'
