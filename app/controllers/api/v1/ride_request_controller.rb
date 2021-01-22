@@ -20,7 +20,7 @@ module Api
             private
 
             def ride_params
-                params.permit(:user_id, :driver_id, :request_start_time, :gps_starting_point, :latitude, :longitude, :request_start_time, :starting_address)
+                params.permit(:user_id, :driver_id, :gps_starting_point, :latitude, :longitude, :request_start_time, :starting_address, :end_address, :end_latitude, :end_longitude)
             end
 
             def set_rides
