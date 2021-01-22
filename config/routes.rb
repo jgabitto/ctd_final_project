@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       put 'update', to: 'users#update'
 
       get 'rides', to: 'ride_request#index'
-      post 'create', to: 'ride_request#create'
+      post 'request', to: 'ride_request#create'
 
 
       
