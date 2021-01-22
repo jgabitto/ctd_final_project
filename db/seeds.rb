@@ -150,28 +150,28 @@ drivers = Driver.create([
 locations = Location.create([
     {
         'user_id': User.find(2).id,
-        'location': '4702 Kinglet Street, Houston, Texas 77035, United States',
-        'latitude': 29.660349,
-        'longitude': -95.456562
+        'location': '10311 S Post Oak Rd, Houston, Texas',
+        'latitude': 29.670040,
+        'longitude': -95.461390
     },
     {
         'user_id': User.find(3).id,
-        'location': 'Rice University, 6100 Main St, Houston, Texas 77005, United States',
-        'latitude': 29.717171,
-        'longitude': -95.4018215
+        'location': '2198 Rice Boulevard, Houston, Texas',
+        'latitude': 29.718440,
+        'longitude': -95.409300
     },
     {
         'user_id': User.find(4).id,
-        'location': 'Houston Downtown Management District, 1119 Milam St, Houston, Texas 77002, United States',
-        'latitude': 29.756763,
-        'longitude': -95.367593
+        'location': '1401 McKinney St, Houston, Texas',
+        'latitude': 29.754990,
+        'longitude': -95.360750
     },
     {
         'user_id': User.find(5).id,
-        'location': 'Poison Girl, 1641 Westheimer Rd, Houston, Texas 77006, United States',
-        'latitude': 29.742678,
-        'longitude': -95.401127
-    }
+        'location': '1643 Westheimer Rd, Houston, Texas',
+        'latitude': 29.742540,
+        'longitude': -95.401420
+    },
 ])
 
 car_models = CarModel.create([
@@ -196,8 +196,8 @@ car_models = CarModel.create([
         manufacture_year: '2020'
     },
     {
-        car_model_name: 'mustang gt',
-        model_description: "Sporty spice's car",
+        car_model_name: 'honda civic',
+        model_description: "My childhood car",
         manufacture_year: '2020'
     },
     {
@@ -216,8 +216,8 @@ car_models = CarModel.create([
         manufacture_year: '2020'
     },
     {
-        car_model_name: "Audi",
-        model_description: 'cool car',
+        car_model_name: "Kia van",
+        model_description: 'family van',
         manufacture_year: '2020'
     },
 ])
@@ -235,7 +235,7 @@ cars = Car.create([
         license_plate: '123456',
         car_type: 'suv',
         driver_id: Driver.find(2).id,
-        car_model_id: CarModel.find(2).id,
+        car_model_id: CarModel.find(3).id,
         capacity: 6,
         active: true
     },
@@ -243,13 +243,13 @@ cars = Car.create([
         license_plate: '123456',
         car_type: 'luxury',
         driver_id: Driver.find(3).id,
-        car_model_id: CarModel.find(3).id,
+        car_model_id: CarModel.find(2).id,
         capacity: 4,
         active: true
     },
     {
         license_plate: '123456',
-        car_type: 'coupe',
+        car_type: 'sedan',
         driver_id: Driver.find(4).id,
         car_model_id: CarModel.find(4).id,
         capacity: 4,
@@ -275,7 +275,7 @@ cars = Car.create([
         license_plate: '123456',
         car_type: 'coupe',
         driver_id: Driver.find(7).id,
-        car_model_id: CarModel.find(7).id,
+        car_model_id: CarModel.find(8).id,
         capacity: 2,
         active: true
     },
@@ -283,7 +283,7 @@ cars = Car.create([
         license_plate: '123456',
         car_type: 'sedan',
         driver_id: Driver.find(8).id,
-        car_model_id: CarModel.find(8).id,
+        car_model_id: CarModel.find(7).id,
         capacity: 4,
         active: true
     },
