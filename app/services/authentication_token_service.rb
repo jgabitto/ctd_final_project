@@ -1,7 +1,8 @@
 class AuthenticationTokenService
     # include ExceptionHandler
 
-    HMAC_SECRET = Rails.application.credentials.secret_jwt_key
+    # HMAC_SECRET = Rails.application.credentials.secret_jwt_key
+    HMAC_SECRET = 'fc3a963a9634a334d263717ee5439797799442d86750d59ae1b44a549987fb1023036703164c413bb7102322292647d09b6d5dd8109a9abbec69b8a9e236c129'
     ALGORITHM_TYPE = 'HS256'
 
     def self.call(user_id)
